@@ -234,7 +234,7 @@ def connect_vectors(vectors):
     return organized
 
 if __name__ == "__main__":
-    filename = "teardrop"
+    filename = "cactus"
     cube = mesh.Mesh.from_file("/home/adanfo/Documents/stl_testing/" + filename + '.stl')
     # mesh.Mesh.from_file("/home/adanfo/Documents/stl_testing/"+ input("Enter file name: ") +".stl")
     points = np.around(np.unique(cube.vectors.reshape([cube.vectors.size//3, 3]), axis=0),2)
@@ -243,7 +243,6 @@ if __name__ == "__main__":
     # print(cube.normals)
     # print(cube.vectors.shape[-2:])
     faces = extract_xy_triangles(cube.vectors)
-
     vectors = remove_duplicate_vectors(convert_to_vectors(faces))
 
     connected = connect_vectors(vectors)
